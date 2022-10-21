@@ -32,10 +32,12 @@ const productSchema = new Schema({
         ref: 'Category',
         required: true
     },
-    comments: {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-    }
+    comment: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 });
 
 const Product = mongoose.model('Product', productSchema);
