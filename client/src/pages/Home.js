@@ -5,7 +5,7 @@ const Home = () => {
         <div className="main-content">
             <div className="home-section-one">
                 <h1 className="main-heading">Deterre.</h1>
-                <a href="#" className="shop-btn">Shop Now</a>
+                <a href="/shop" className="shop-btn">Shop Now</a>
                 <i class="fa-solid fa-arrow-down fa-7x"></i>
             </div>
             <div className="home-section-two">
