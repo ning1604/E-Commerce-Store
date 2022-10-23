@@ -1,0 +1,104 @@
+:root {
+    --background-color: rgb(25 25 25);
+    --primary-color: rgb(253, 243, 212);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--background-color);
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--primary-color);
+    margin: 0 2rem;
+}
+
+.nav li {
+    padding: 0 2.5rem;
+}
+
+.logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 130px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.header {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-color);
+    font-family: 'Zodiak', serif;
+    margin: 0 4rem 3rem;
+}
+
+.sec-contacts {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.email-link, .email-link:visited {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 50px;
+    text-underline-position: under;
+    margin-bottom: 2rem;
+}
+
+.footer p {
+    font-size: 35px;
+}
+
+.icon-group a, .icon-group a:visited {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 3rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-content {
+    height: 100vh;
+}
