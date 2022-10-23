@@ -7,7 +7,7 @@ function Header() {
                 <li>SHOP</li>
                 <li>ABOUT</li>
             </ul>
-            <div className='logo'>O</div>
+            <div className='logo'>ⴲ</div>
             <ul className='nav'>
                 <li>LOGIN</li>
                 <li>CART (0)</li>
