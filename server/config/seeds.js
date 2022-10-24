@@ -5,7 +5,6 @@ db.once('open', async () => {
     await Category.deleteMany();
 
     const categories = await Category.insertMany([
-        { name: 'All' },
         { name: 'Tops' },
         { name: 'Bottoms' },
         { name: 'Outwear' },
@@ -18,13 +17,13 @@ db.once('open', async () => {
 
     const products = await Product.insertMany([
         {
-            name: 'Shirt',
+            name: 'Button Up Shirt',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
             specification: 'This is made out of 100% material.',
-            image: 'knittedJumper.jpg',
-            category: categories[1]._id,
-            price: 39.99,
+            image: 'buttonUpShirt.jpg',
+            category: categories[0]._id,
+            price: 59.99,
             quantity: 500
         },
         {
@@ -32,51 +31,61 @@ db.once('open', async () => {
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
             specification: 'This is made out of 100% material.',
-            image: 'knittedJumper.jpg',
-            category: categories[1]._id,
+            image: 'poloShirt.jpg',
+            category: categories[0]._id,
             price: 64.99,
             quantity: 500
         },
         {
-            name: 'Shorts',
+            name: 'Striped Shorts',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
             specification: 'This is made out of 100% material.',
-            image: 'knittedJumper.jpg',
-            category: categories[2]._id,
-            price: 59.99,
+            image: 'stripedShorts.jpg',
+            category: categories[1]._id,
+            price: 49.99,
             quantity: 500
         },
         {
-            name: 'Cord Pants',
+            name: 'Denim Jeans',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
             specification: 'This is made out of 100% material.',
-            image: 'knittedJumper.jpg',
-            category: categories[2]._id,
-            price: 79.99,
+            image: 'denimJeans.jpg',
+            category: categories[1]._id,
+            price: 179.99,
             quantity: 500
         },
         {
             name: 'Knitted Jumper',
             description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
             specification: 'This is made out of 100% material.',
             image: 'knittedJumper.jpg',
-            category: categories[3]._id,
+            category: categories[2]._id,
             price: 119.99,
             quantity: 500
-          },
-          {
-            name: 'Bucket Hat',
+        },
+        {
+            name: 'Sweatshirt',
             description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
             specification: 'This is made out of 100% material.',
-            image: 'knittedJumper.jpg',
-            category: categories[4]._id,
-            price: 39.99,
+            image: 'sweatshirt.jpg',
+            category: categories[2]._id,
+            price: 79.99,
             quantity: 500
-          }
+        },
+        {
+            name: 'Beanie',
+            description:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.',
+            specification: 'This is made out of 100% material.',
+            image: 'beanie.jpg',
+            category: categories[3]._id,
+            price: 45.99,
+            quantity: 500
+        }
     ]);
 
     console.log('products seeded');

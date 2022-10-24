@@ -275,3 +275,101 @@ ul {
     margin-left: 8rem;
     margin-right: -7rem;
 }
+
+/* product list page */
+
+.page-container {
+    margin: 0 4rem;
+}
+
+.category-menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+}
+
+.category-menu button {
+    margin: 0rem;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background: none;
+	border: none;
+	padding: 0;
+	outline: inherit;
+    cursor: pointer;
+    border-bottom: solid transparent 5px;
+}
+
+.category-menu button:hover {
+    border-bottom: solid var(--primary-color) 5px;
+}
+
+.category-menu button:active {
+    color: var(--active-color);
+    border-bottom: solid var(--active-color) 5px;
+}
+
+.product-list {
+    margin-top: 8rem;
+}
+
+.product-image {
+    height: 700px;
+    width: 466px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 0 5rem 4rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.card-name {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--primary-color);
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card-price {
+    font-family: 'Zodiak', serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.add-cart-btn {
+    padding: .6rem 1.5rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--background-color);
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+
+.add-cart-btn:hover {
+    background-color: rgb(148, 148, 148);
+}
+
+.add-cart-btn:active {
+    background-color: var(--active-color);
+}
