@@ -210,6 +210,14 @@ ul {
     margin-bottom: 10rem;
 }
 
+.shop-btn:hover {
+    background-color: rgb(148, 148, 148);
+}
+
+.shop-btn:active {
+    background-color: var(--active-color);
+}
+
 .home-section-two {
     display: flex;
     flex-direction: column;
@@ -372,4 +380,28 @@ ul {
 
 .add-cart-btn:active {
     background-color: var(--active-color);
+}
+
+.about-text {
+    color: var(--primary-color);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    max-width: 1000px;
+    margin-top: 10rem;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.about-img {
+    height: 1000px;
+    width: auto;
+    margin-right: 1rem;
+    position: absolute;
+    top: -23rem;
+    right: 0;
 }
