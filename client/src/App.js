@@ -15,6 +15,7 @@ import ProductList from './pages/ProductList';
 import About from './pages/About';
 import NoMatch from './pages/NoMatch';
 import { StoreProvider } from './utils/GlobalState';
+import SingleProduct from './pages/SingleProduct';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -50,6 +51,10 @@ function App() {
               <Route
                 path='/shop'
                 element={<ProductList />}
+              />
+              <Route
+                path='/products/:id'
+                element={<SingleProduct />}
               />
               <Route
                 path='/about'
