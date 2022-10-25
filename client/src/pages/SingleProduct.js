@@ -104,7 +104,7 @@ function SingleProduct() {
                         </div>
                     </div>
 
-                    <Link className='go-back-btn' to="/shop">← Back to All Products</Link>
+                    <Link className='small-btn' to="/shop">← Back to All Products</Link>
                 </div>
             ) : null}
             {loading ? <div className='sub-header'>Loading...</div> : null}
