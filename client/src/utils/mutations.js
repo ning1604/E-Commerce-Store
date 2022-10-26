@@ -25,22 +25,16 @@ export const ADD_ORDER = gql`
         category {
             name
         }
-        comment {
-            author
-            text
-            date
-        }
       }
     }
   }
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($product: ID!, $comment: [ID]!) {
-    addComment(product: $product, comment: $comment) {
+  mutation addComment($author: String, $text: String) {
+    addComment(author: $author, text: $text) {
       author
       text
-      date
     }
   }
 `;

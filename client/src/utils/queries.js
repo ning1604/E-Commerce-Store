@@ -13,6 +13,10 @@ export const QUERY_PRODUCTS = gql`
       category {
         _id
       }
+      comments {
+        author
+        text
+      }
     }
   }
 `;
@@ -37,6 +41,10 @@ export const QUERY_ALL_PRODUCTS = gql`
       category {
         name
       }
+      comments {
+        author
+        text
+      }
     }
   }
 `;
@@ -53,10 +61,8 @@ export const QUERY_CATEGORIES = gql`
 export const QUERY_COMMENTS = gql`
   {
     comments {
-      _id
       author
       text
-      date
     }
   }
 `;

@@ -78,7 +78,20 @@ function SingleProduct() {
 
         idbPromise('cart', 'delete', { ...currentProduct });
     };
-
+    const commentsObj = {
+        product: {
+            comments: [
+                {
+                    author: 'author one',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.'
+                },
+                {
+                    author: 'author two',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus.'
+                }
+            ]
+        }
+    };
 
     return (
         <>
@@ -103,8 +116,35 @@ function SingleProduct() {
                             <button className="add-cart-btn" onClick={addToCart}>Add to Cart</button>
                         </div>
                     </div>
-
                     <Link className='small-btn' to="/shop">← Back to All Products</Link>
+                    <div>
+                        <div className='comment-container'>
+                            <h3 className='comment-heading'>Comments</h3>
+                            {commentsObj.product.comments.map((comment) => {
+                                return (
+                                    <div className='comment-content'>
+                                        <p>{comment.text}</p>
+                                        <p className='comment-author'>- {comment.author}</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <form className='login-form'>
+                            <div className='form-input'>
+                                <label htmlFor='comment'>Add a comment</label>
+                                <input
+                                    placeholder='comment here'
+                                    name='comment'
+                                    type='comment'
+                                    id='comment'
+                                    // onChange={handleChange}
+                                />
+                            </div>
+                            <div>
+                                <button className='form-btn' type='submit'>Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             ) : null}
             {loading ? <div className='sub-header'>Loading...</div> : null}

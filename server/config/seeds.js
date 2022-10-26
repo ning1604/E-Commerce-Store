@@ -24,7 +24,17 @@ db.once('open', async () => {
             image: 'buttonUpShirt.jpg',
             category: categories[0]._id,
             price: 59.99,
-            quantity: 500
+            quantity: 500,
+            comments: [
+                {
+                    author: 'username',
+                    text: 'testing comment text'
+                },
+                {
+                    author: 'username2',
+                    text: 'testing second text'
+                }
+            ]
         },
         {
             name: 'Polo Shirt',
@@ -34,7 +44,17 @@ db.once('open', async () => {
             image: 'poloShirt.jpg',
             category: categories[0]._id,
             price: 64.99,
-            quantity: 500
+            quantity: 500,
+            comments: [
+                {
+                    author: 'username',
+                    text: 'testing comment text'
+                },
+                {
+                    author: 'username2',
+                    text: 'testing second text'
+                }
+            ]
         },
         {
             name: 'Striped Shorts',
@@ -44,7 +64,17 @@ db.once('open', async () => {
             image: 'stripedShorts.jpg',
             category: categories[1]._id,
             price: 49.99,
-            quantity: 500
+            quantity: 500,
+            comments: [
+                {
+                    author: 'username',
+                    text: 'testing comment text'
+                },
+                {
+                    author: 'username2',
+                    text: 'testing second text'
+                }
+            ]
         },
         {
             name: 'Denim Jeans',
@@ -54,7 +84,17 @@ db.once('open', async () => {
             image: 'denimJeans.jpg',
             category: categories[1]._id,
             price: 179.99,
-            quantity: 500
+            quantity: 500,
+            comments: [
+                {
+                    author: 'username',
+                    text: 'testing comment text'
+                },
+                {
+                    author: 'username2',
+                    text: 'testing second text'
+                }
+            ]
         },
         {
             name: 'Knitted Jumper',
@@ -64,7 +104,17 @@ db.once('open', async () => {
             image: 'knittedJumper.jpg',
             category: categories[2]._id,
             price: 119.99,
-            quantity: 500
+            quantity: 500,
+            comments: [
+                {
+                    author: 'username',
+                    text: 'testing comment text'
+                },
+                {
+                    author: 'username2',
+                    text: 'testing second text'
+                }
+            ]
         },
         {
             name: 'Sweatshirt',
@@ -74,7 +124,17 @@ db.once('open', async () => {
             image: 'sweatshirt.jpg',
             category: categories[2]._id,
             price: 79.99,
-            quantity: 500
+            quantity: 500,
+            comments: [
+                {
+                    author: 'username',
+                    text: 'testing comment text'
+                },
+                {
+                    author: 'username2',
+                    text: 'testing second text'
+                }
+            ]
         },
         {
             name: 'Beanie',
@@ -84,7 +144,17 @@ db.once('open', async () => {
             image: 'beanie.jpg',
             category: categories[3]._id,
             price: 45.99,
-            quantity: 500
+            quantity: 500,
+            comments: [
+                {
+                    author: 'username',
+                    text: 'testing comment text'
+                },
+                {
+                    author: 'username2',
+                    text: 'testing second text'
+                }
+            ]
         }
     ]);
 

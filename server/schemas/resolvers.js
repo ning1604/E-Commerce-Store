@@ -97,6 +97,13 @@ const resolvers = {
 
       return { token, user };
     },
+    addComment: async (parent, args, {_id, comments}) => {
+      const newComment = { author: args.author, text: args.text }
+
+      await Product.findByIdAndUpdate(_id, { $push: { comments: newComment } }, { new: true });
+
+      return newComment;
+    },
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Comments = require('./Comment');
 
 const { Schema } = mongoose;
 
@@ -32,12 +33,7 @@ const productSchema = new Schema({
         ref: 'Category',
         required: true
     },
-    comment: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment'
-        }
-    ]
+    comments: [Comments.schema]
 });
 
 const Product = mongoose.model('Product', productSchema);
