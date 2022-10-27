@@ -1,0 +1,102 @@
+.cart {
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  min-width: 20%;
+  max-width: 30%;
+  max-height: 78vh;
+  background-color: rgb(251, 246, 233);
+  color: black;
+  overflow: auto;
+  padding: 1rem 2rem;
+  z-index: 1;
+}
+
+.cart h2 {
+  font-size: 40px;
+  font-weight: 900;
+  padding-bottom: .5rem;
+}
+
+.close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  cursor: pointer;
+  color: black;
+}
+
+.cart .close:hover {
+  text-decoration: underline;
+}
+
+.cart-closed {
+  cursor: pointer;
+  background-color: var(--secondary);
+  border-bottom: solid transparent 4px;
+  text-transform: uppercase;
+}
+
+.cart-closed:hover {
+  border-bottom: solid rgb(253, 243, 212) 4px;
+}
+
+.cart-closed:active {
+  color: rgb(100, 100, 100);
+  border-bottom: solid rgb(100, 100, 100) 4px;
+}
+
+.cart-product img {
+  height: 200px;
+  width: auto;
+  margin: 1rem 0;
+}
+
+.cart input {
+  width: 50px;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.cart-total {
+  margin: 2rem 0;
+  position: fixed;
+  bottom: 0;
+  right: 4rem;
+  background-color: rgb(251, 246, 233);
+  color: black;
+  padding: 1rem;
+  width: 20%;
+}
+
+.inform-login {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.remove-item {
+  font-size: 25px;
+}
+
+.checkout-btn {
+  background-color: rgb(25 25 25);
+  color: rgb(253, 243, 212);
+  padding: .5rem 2rem;
+  border-radius: 2rem;
+  margin-top: .75rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .cart {
+    position: relative;
+    max-width: 100%;
+    max-height: auto;
+    background-color: inherit;
+  }
+
+  .cart-closed {
+    position: relative;
+    margin: 0 auto;
+  }
+}

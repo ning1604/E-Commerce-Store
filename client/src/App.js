@@ -84,15 +84,3 @@ function App() {
 }
 
 export default App;
-
-// function App() {
-//   return (
-//     <div className='container'>
-//       <Header />
-//       <Home />
-//       <Footer />
-//     </div>
-//   );
-// }
-
-// export default App;

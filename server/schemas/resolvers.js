@@ -1,7 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Order } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
+const stripe = require('stripe')(process.env.REACT_APP_SERVER_SECRET_KEY);
 
 const resolvers = {
   Query: {
@@ -63,13 +64,12 @@ const resolvers = {
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          specification: products[i].specification,
-          images: [`${url}/images/${products[i].image}`]
+          images: [`${url}/images/products/${products[i].image}`]
         });
 
         const price = await stripe.prices.create({
           product: product.id,
-          unit_amount: products[i].price * 100,
+          unit_amount: Math.round(products[i].price.toFixed(2) * 100),
           currency: 'usd',
         });
 
@@ -83,7 +83,7 @@ const resolvers = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${url}/`,
         cancel_url: `${url}/`
       });
 

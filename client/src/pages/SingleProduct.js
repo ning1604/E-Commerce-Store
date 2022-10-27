@@ -70,14 +70,6 @@ function SingleProduct() {
         }
     };
 
-    const removeFromCart = () => {
-        dispatch({
-            type: REMOVE_FROM_CART,
-            _id: currentProduct._id,
-        });
-
-        idbPromise('cart', 'delete', { ...currentProduct });
-    };
     const commentsObj = {
         product: {
             comments: [
@@ -95,7 +87,7 @@ function SingleProduct() {
 
     return (
         <>
-            {currentProduct ? (
+            {currentProduct && cart ? (
                 <div className="main-container page-container">
 
                     <h2 className='sub-header'>{currentProduct.name}</h2>
@@ -129,7 +121,7 @@ function SingleProduct() {
                                 )
                             })}
                         </div>
-                        <form className='login-form'>
+                        {/* <form className='login-form'>
                             <div className='form-input'>
                                 <label htmlFor='comment'>Add a comment</label>
                                 <input
@@ -143,7 +135,7 @@ function SingleProduct() {
                             <div>
                                 <button className='form-btn' type='submit'>Submit</button>
                             </div>
-                        </form>
+                        </form> */}
                     </div>
                 </div>
             ) : null}

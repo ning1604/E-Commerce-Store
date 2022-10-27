@@ -1,5 +1,6 @@
 import React from 'react';
 import Auth from '../../utils/auth';
+import Cart from '../Cart';
 
 function Navbar() {
     if (Auth.loggedIn()) {
@@ -19,7 +20,7 @@ function Navbar() {
                         <a href='/' onClick={() => Auth.logout()}>LOGOUT</a>
                     </li>
                     <li>
-                        <a href='404'>CART (0)</a>
+                        <Cart />
                     </li>
                 </ul>
             </div>
@@ -41,7 +42,7 @@ function Navbar() {
                         <a href='/login'>LOGIN</a>
                     </li>
                     <li>
-                        <a href='404'>CART (0)</a>
+                        <Cart />
                     </li>
                 </ul>
             </div>
