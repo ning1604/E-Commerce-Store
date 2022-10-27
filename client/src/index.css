@@ -4,6 +4,8 @@
     --active-color: rgb(100, 100, 100);
 }
 
+/* General styling resets ------------------------------ */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -30,6 +32,33 @@ select {
 
 ul {
     list-style: none;
+}
+
+/* ----------------------------------------------------- */
+
+/* General page styling -------------------------------- */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-content {
+    min-height: 80vh;
+}
+
+/* ----------------------------------------------------- */
+
+
+/* Header styling -------------------------------------- */
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 180px;
 }
 
 .nav {
@@ -70,13 +99,10 @@ ul {
     text-decoration: none;
 }
 
-.header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 180px;
-}
+/* ----------------------------------------------------- */
+
+
+/* Footer styling -------------------------------------- */
 
 .footer {
     display: flex;
@@ -90,6 +116,7 @@ ul {
 .sec-contacts {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -115,11 +142,16 @@ ul {
     font-size: 35px;
 }
 
+.icon-group {
+    display: flex;
+    justify-content: space-between;
+    width: 225px;
+}
+
 .icon-group a,
 .icon-group a:visited {
     color: var(--primary-color);
     text-decoration: none;
-    margin-right: 3rem;
     padding-bottom: 8px;
 }
 
@@ -132,22 +164,9 @@ ul {
     border-bottom: solid var(--active-color) 5px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+/* ----------------------------------------------------- */
 
-.main-content {
-    min-height: 80vh;
-}
-
-.no-match {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/* Homepage styling ------------------------------------ */
 
 .home-images {
     height: 900px;
@@ -178,9 +197,8 @@ ul {
 
 .home-section-one i {
     color: var(--primary-color);
-    animation: jumpInfinite 2s infinite;
-    position: absolute;
-    top: calc(100vh - 14rem)
+    /* animation: jumpInfinite 2s infinite; */
+    /* top: calc(100vh - 14rem) */
 }
 
 @keyframes jumpInfinite {
@@ -234,6 +252,7 @@ ul {
     font-weight: 700;
     font-size: 250px;
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 .content-number {
@@ -284,7 +303,23 @@ ul {
     margin-right: -7rem;
 }
 
-/* product list page */
+/* ----------------------------------------------------- */
+
+
+/* No match found page styling ------------------------- */
+
+.no-match {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ----------------------------------------------------- */
+
+
+
+/* product list page ----------------------------------- */
 
 .page-container {
     margin: 0 4rem;
@@ -304,9 +339,9 @@ ul {
     text-transform: uppercase;
     color: var(--primary-color);
     background: none;
-	border: none;
-	padding: 0;
-	outline: inherit;
+    border: none;
+    padding: 0;
+    outline: inherit;
     cursor: pointer;
     border-bottom: solid transparent 5px;
 }
@@ -375,37 +410,21 @@ ul {
     border: none;
 }
 
-.add-cart-btn:hover, .small-btn:hover, .form-btn:hover {
+.add-cart-btn:hover,
+.small-btn:hover,
+.form-btn:hover {
     background-color: rgb(148, 148, 148);
 }
 
-.add-cart-btn:active, .small-btn:active, .form-btn:active {
+.add-cart-btn:active,
+.small-btn:active,
+.form-btn:active {
     background-color: var(--active-color);
 }
 
-.about-text {
-    color: var(--primary-color);
-    font-family: 'Satoshi', sans-serif;
-    font-size: 50px;
-    font-weight: 700;
-    max-width: 1000px;
-    margin-top: 10rem;
-}
+/* ----------------------------------------------------- */
 
-.about-content {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-.about-img {
-    height: 1000px;
-    width: auto;
-    margin-right: 1rem;
-    position: absolute;
-    top: -23rem;
-    right: 0;
-}
+/* Single product page --------------------------------- */
 
 .small-btn {
     background-color: var(--primary-color);
@@ -447,7 +466,8 @@ ul {
     font-weight: 700;
 }
 
-.product-description, .product-specification {
+.product-description,
+.product-specification {
     font-family: 'Satoshi', sans-serif;
     font-size: 25px;
 }
@@ -456,6 +476,64 @@ ul {
     list-style-type: circle;
     margin: 2rem 0 3rem 3rem;
 }
+
+.comment-container {
+    font-family: 'Satoshi', sans-serif;
+    color: var(--primary-color);
+    margin: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-heading {
+    font-size: 60px;
+    margin-bottom: 2rem;
+}
+
+.comment-content {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 80%;
+}
+
+.comment-author {
+    font-weight: 900;
+    opacity: 0.5;
+}
+
+/* ----------------------------------------------------- */
+
+/* About page styling ---------------------------------- */
+
+.about-text {
+    color: var(--primary-color);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    max-width: 1000px;
+    margin-top: 10rem;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.about-img {
+    height: 1000px;
+    width: auto;
+    margin-right: 1rem;
+    position: absolute;
+    top: -23rem;
+    right: 0;
+}
+
+/* ----------------------------------------------------- */
+
+/* login and signup form ------------------------------- */
 
 .login-form {
     color: var(--primary-color);
@@ -533,28 +611,4 @@ ul {
     margin-bottom: 1rem;
 }
 
-.comment-container {
-    font-family: 'Satoshi', sans-serif;
-    color: var(--primary-color);
-    margin: 5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.comment-heading {
-    font-size: 60px;
-    margin-bottom: 2rem;
-}
-
-.comment-content {
-   font-size: 25px;
-   text-align: center;
-   margin-bottom: 2rem;
-   width: 80%;
-}
-
-.comment-author {
-    font-weight: 900;
-    opacity: 0.5;
-}
+/* ----------------------------------------------------- */

@@ -33,6 +33,7 @@
 .cart-closed {
   cursor: pointer;
   background-color: var(--secondary);
+  margin-top: 4px;
   border-bottom: solid transparent 4px;
   text-transform: uppercase;
 }
@@ -97,6 +98,6 @@
 
   .cart-closed {
     position: relative;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
 }
