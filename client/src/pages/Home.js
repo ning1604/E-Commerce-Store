@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
         <div className="main-content">
             <div className="home-section-one">
                 <h1 className="main-heading">Deterre.</h1>
-                <a href="/shop" className="shop-btn">Shop Now</a>
+                <Link to="/shop" className="shop-btn">Shop Now</Link>
                 <i class="fa-solid fa-arrow-down fa-7x"></i>
             </div>
             <div className="home-section-two">
