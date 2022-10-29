@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import Cart from '../Cart';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     if (Auth.loggedIn()) {
@@ -8,16 +9,16 @@ function Navbar() {
             <div className='header'>
                 <ul className='nav'>
                     <li>
-                        <a href='/shop'>SHOP</a>
+                        <Link to='/shop'>SHOP</Link>
                     </li>
                     <li>
-                        <a href='/about'>ABOUT</a>
+                        <Link to='/about'>ABOUT</Link>
                     </li>
                 </ul>
-                <a href='/' className='logo'>ⴲ</a>
+                <Link to='/' className='logo'>ⴲ</Link>
                 <ul className='nav'>
                     <li>
-                        <a href='/' onClick={() => Auth.logout()}>LOGOUT</a>
+                        <Link to='/' onClick={() => Auth.logout()}>LOGOUT</Link>
                     </li>
                     <li>
                         <Cart />
@@ -30,16 +31,16 @@ function Navbar() {
             <div className='header'>
                 <ul className='nav'>
                     <li>
-                        <a href='/shop'>SHOP</a>
+                        <Link to='/shop'>SHOP</Link>
                     </li>
                     <li>
-                        <a href='/about'>ABOUT</a>
+                        <Link to='/about'>ABOUT</Link>
                     </li>
                 </ul>
-                <a href='/' className='logo'>ⴲ</a>
+                <Link to='/' className='logo'>ⴲ</Link>
                 <ul className='nav'>
                     <li>
-                        <a href='/login'>LOGIN</a>
+                        <Link to='/login'>LOGIN</Link>
                     </li>
                     <li>
                         <Cart />
