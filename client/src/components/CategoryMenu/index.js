@@ -41,10 +41,20 @@ function CategoryMenu() {
     });
   };
 
+  function handleShowAll() {
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      categories: categoryData.categories,
+    });
+    categoryData.categories.forEach((category) => {
+      idbPromise('categories', 'put', category);
+    });
+  }
+
   return (
     <div className='category-menu'>
       <button onClick={() => {
-        window.location.reload();
+        handleShowAll();
       }}>
         All
       </button>
