@@ -61,6 +61,70 @@ ul {
     max-height: 180px;
 }
 
+.hamburger-react {
+    color: var(--primary-color);
+    display: none;
+    z-index: 2;
+}
+
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+@media screen and (min-width: 1000px) {
+    .nav-menu {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .hide-link {
+        display: none;
+    }
+
+    .hamburger-react {
+        display: block;
+    }
+
+    .nav {
+        width: 20%;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        background-color: var(--background-color);
+        opacity: 0.9;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0, 1) 20%);
+        z-index: 1;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 6rem 0 10rem 0;
+        gap: 2rem;
+    }
+
+    .nav-menu a {
+        color: var(--primary-color);
+        text-decoration: none;
+        border-bottom: solid transparent 4px;
+    }
+
+    .nav-menu a:hover {
+        border-bottom: solid var(--primary-color) 4px;
+    }
+}
+
 .nav {
     display: flex;
     justify-content: space-between;

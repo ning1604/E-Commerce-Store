@@ -85,10 +85,6 @@
     }
 }
 
-.header {
-    display: none;
-}
-
 @media screen and (max-width: 1400px) {
      .about-content {
         flex-direction: column;
@@ -198,6 +194,23 @@
     }
     .main-container {
         margin: 0 1rem;
+    }
+    .logo {
+        font-size: 80px;
+        position: absolute;
+        top: -0.5rem;
+        right: 44vw;
+        text-align: center;
+        width: fit-content;
+    }
+    .header {
+        padding: 2rem 0;
+    }
+    .nav li {
+        position: absolute;
+        top: 2rem;
+        right: 0;
+        font-size: 25px;
     }
 }
 
