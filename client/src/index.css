@@ -328,11 +328,12 @@ ul {
 .category-menu {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: 0 10%;
 }
 
 .category-menu button {
-    margin: 0rem;
+    margin: 0 1rem;
     font-family: 'Satoshi', sans-serif;
     font-weight: 900;
     font-size: 40px;
