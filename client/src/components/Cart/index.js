@@ -82,7 +82,7 @@ const Cart = () => {
             </div>
             <div className="cart">
                 <div className="close" onClick={toggleCart}>
-                    Close
+                    X
                 </div>
                 <h2>Shopping Cart</h2>
                 {state.cart.length ? (
@@ -92,7 +92,7 @@ const Cart = () => {
                         ))}
 
                         <div className="cart-total">
-                            <p>Total: ${calculateTotal()}</p>
+                            <p>Total: <span>${calculateTotal()}</span></p>
 
                             {Auth.loggedIn() ? (
                                 <button className='checkout-btn' onClick={submitCheckout}>Checkout</button>

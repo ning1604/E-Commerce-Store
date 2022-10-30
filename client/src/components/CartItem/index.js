@@ -51,6 +51,8 @@ const CartItem = ({ item }) => {
           <input
             type="number"
             placeholder="1"
+            min={1}
+            max={item.quantity}
             value={item.purchaseQuantity}
             onChange={onChange}
           />
