@@ -89,7 +89,29 @@
     display: none;
 }
 
+@media screen and (max-width: 1400px) {
+     .about-content {
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 3rem;
+        text-align: center;
+     }
+     .about-text {
+        font-size: clamp(20px, 3vw, 50px);
+        margin: 0;
+     }
+     .about-img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+     }
+}
+
 @media screen and (max-width: 1080px) {
+    .about-img {
+        max-width: 400px;
+    }
     .main-heading {
         font-size: 150px;
     }
@@ -174,6 +196,9 @@
     .main-content {
         margin: 0 1rem
     }
+    .main-container {
+        margin: 0 1rem;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -210,6 +235,14 @@
     .card {
         margin: 2rem
     }
+    .shop-btn {
+        font-size: 20px;
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+    }
+    .home-section-two {
+        margin: 1rem;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -220,6 +253,11 @@
         font-size: 30px;
     }
     .product-list {
+        margin: 1rem;
+    }
+    .form-btn {
+        font-size: 20px;
+        padding: .5rem 2rem;
         margin: 1rem;
     }
 }

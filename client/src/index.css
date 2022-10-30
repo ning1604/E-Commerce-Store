@@ -521,15 +521,16 @@ ul {
     display: flex;
     justify-content: space-between;
     position: relative;
+    margin: 0 2rem;
 }
 
 .about-img {
     height: 1000px;
     width: auto;
-    margin-right: 1rem;
+    /* margin-right: 1rem;
     position: absolute;
     top: -23rem;
-    right: 0;
+    right: 0; */
 }
 
 /* ----------------------------------------------------- */
@@ -541,16 +542,16 @@ ul {
     margin: 1rem;
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
 }
 
 .form-input {
     font-family: 'Satoshi', sans-serif;
-    font-size: 35px;
+    font-size: clamp(1rem, 2.5vw, 3rem);
     display: flex;
     flex-direction: column;
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     margin-bottom: 2rem;
 }
 
@@ -563,6 +564,7 @@ ul {
     border: none;
     border-bottom: 5px solid var(--primary-color);
     padding: 0.75rem .5rem;
+    width: 100%;
     color: inherit;
     outline: none;
 }
