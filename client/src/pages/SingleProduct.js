@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
 
 import { useStoreContext } from '../utils/GlobalState';
 import {
@@ -21,6 +22,9 @@ function SingleProduct() {
     const { loading, data } = useQuery(QUERY_PRODUCTS);
 
     const { products, cart } = state;
+
+    // const [formState, setFormState] = useState({ comment: '', name: '' });
+    // const [addComment] = useMutation(UPDATE_CURRENT_PRODUCT);
 
     useEffect(() => {
         // already in global store
@@ -85,6 +89,30 @@ function SingleProduct() {
         }
     };
 
+    const handleCommentSubmit = async (event) => {
+      event.preventDefault();  
+    };
+
+    // const handleCommentSubmit = async (event) => {
+    //     event.preventDefault();
+    //     const mutationResponse = await addComment({
+    //         variables: {
+    //             comment: formState.email,
+    //             display: formState.password,
+    //         },
+    //     });
+    //     const token = mutationResponse.data.addUser.token;
+    //     Auth.login(token);
+    // };
+
+    // const handleChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setFormState({
+    //         ...formState,
+    //         [name]: value,
+    //     });
+    // };
+
     return (
         <>
             {currentProduct && cart ? (
@@ -108,7 +136,7 @@ function SingleProduct() {
                             <button className="add-cart-btn" onClick={addToCart}>Add to Cart</button>
                         </div>
                     </div>
-                    <Link className='small-btn' to="/shop">← Back to All Products</Link>
+                    <Link className='small-btn back-btn' to="/shop">← Back to All Products</Link>
                     <div>
                         <div className='comment-container'>
                             <h3 className='comment-heading'>Comments</h3>
@@ -121,7 +149,7 @@ function SingleProduct() {
                                 )
                             })}
                         </div>
-                        {/* <form className='login-form'>
+                        <form className='login-form' onSubmit={handleCommentSubmit}>
                             <div className='form-input'>
                                 <label htmlFor='comment'>Add a comment</label>
                                 <input
@@ -131,11 +159,18 @@ function SingleProduct() {
                                     id='comment'
                                     // onChange={handleChange}
                                 />
+                                <input
+                                    placeholder='display name'
+                                    name='name'
+                                    type='name'
+                                    id='name'
+                                    // onChange={handleChange}
+                                />
                             </div>
                             <div>
                                 <button className='form-btn' type='submit'>Submit</button>
                             </div>
-                        </form> */}
+                        </form>
                     </div>
                 </div>
             ) : null}

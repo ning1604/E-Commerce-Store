@@ -156,6 +156,23 @@
         top: -6rem;
         right: -4rem;
     }
+    .single-product-image {
+        max-width: 450px;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0 2rem;
+    }
+    .product-detail-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-info-container {
+        align-items: center;
+        text-align: center;
+        margin: 3rem 0 4rem 0;
+        padding: 0 2rem;
+    }
 }
 
 @media screen and (max-width: 1600px) {
@@ -255,6 +272,20 @@
     }
     .home-section-two {
         margin: 1rem;
+    }
+    .product-description, .product-specification {
+        font-size: 20px;
+        margin: 0 0 2rem 0;
+    }
+    .comment-container p {
+        font-size: 20px;
+    }
+    .comment-container {
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+    .comment-heading {
+        margin-top: 4rem;
     }
 }
 
