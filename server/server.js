@@ -5,6 +5,11 @@ const { authMiddleware } = require('./utils/auth');
 
 require('dotenv').config({ path: '../.env' })
 
+const stripe = require('stripe')(`${process.env.REACT_APP_SERVER_SECRET_KEY}`);
+const endpointSecret = `${process.env.REACT_APP_ENDPOINT_SECRET_KEY}`;
+
+
+
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
@@ -28,6 +33,39 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+// Success page
+
+const bodyParser = require('body-parser');
+
+const fulfillOrder = (session) => {
+  // TODO: fill me in
+  console.log("Fulfilling order", session);
+}
+
+app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, response) => {
+  const payload = request.body;
+  const sig = request.headers['stripe-signature'];
+
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+  } catch (err) {
+    return response.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Handle the checkout.session.completed event
+  if (event.type === 'checkout.session.completed') {
+    const session = event.data.object;
+
+    // Fulfill the purchase...
+    fulfillOrder(session);
+    console.log('success function')
+  }
+
+  response.status(200);
 });
 
 

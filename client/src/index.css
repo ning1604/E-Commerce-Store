@@ -679,3 +679,8 @@ ul {
 }
 
 /* ----------------------------------------------------- */
+
+.redirect-text {
+    color: var(--primary-color);
+    font-family: 'Satoshi', sans-serif;
+}

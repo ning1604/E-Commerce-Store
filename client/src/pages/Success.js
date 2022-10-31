@@ -31,7 +31,7 @@ function Success() {
     return (
         <div className="main-content no-match">
             <h1 className="sub-header">Thank you for your purchase!</h1>
-            <h2>You will now be redirected to the home page</h2>
+            <h2 className='redirect-text'>You will now be redirected to the home page</h2>
         </div>
     );
 }
