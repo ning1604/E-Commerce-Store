@@ -13,14 +13,12 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_CLIENT_SECRET_KEY}`);
 
 const Cart = () => {
     const [state, dispatch] = useStoreContext();
-    const [getCheckout, { error, data }] = useLazyQuery(QUERY_CHECKOUT);
-    console.log(`Error! ${error}`);
+    const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
     
 
     useEffect(() => {
         if (data) {
             stripePromise.then((res) => {
-                console.log('redirect to checkout')
                 res.redirectToCheckout({ sessionId: data.checkout.session });
             });
         }
@@ -51,13 +49,12 @@ const Cart = () => {
 
     function submitCheckout() {
         const productIds = [];
-        console.log('checkout')
         state.cart.forEach((item) => {
             for (let i = 0; i < item.purchaseQuantity; i++) {
                 productIds.push(item._id);
             }
         });
-        console.log(productIds)
+        
         getCheckout({
             variables: { products: productIds },
         });

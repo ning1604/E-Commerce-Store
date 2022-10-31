@@ -62,7 +62,6 @@ app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, respo
 
     // Fulfill the purchase...
     fulfillOrder(session);
-    console.log('success function')
   }
 
   response.status(200);
