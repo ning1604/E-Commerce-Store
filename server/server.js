@@ -37,41 +37,41 @@ app.get('/', (req, res) => {
 
 // testing
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 // Success page
 
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
-const fulfillOrder = (session) => {
-  // TODO: fill me in
-  console.log("Fulfilling order", session);
-}
+// const fulfillOrder = (session) => {
+//   // TODO: fill me in
+//   console.log("Fulfilling order", session);
+// }
 
-app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, response) => {
-  const payload = request.body;
-  const sig = request.headers['stripe-signature'];
+// app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, response) => {
+//   const payload = request.body;
+//   const sig = request.headers['stripe-signature'];
 
-  let event;
+//   let event;
 
-  try {
-    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
-  } catch (err) {
-    return response.status(400).send(`Webhook Error: ${err.message}`);
-  }
+//   try {
+//     event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+//   } catch (err) {
+//     return response.status(400).send(`Webhook Error: ${err.message}`);
+//   }
 
-  // Handle the checkout.session.completed event
-  if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
+//   // Handle the checkout.session.completed event
+//   if (event.type === 'checkout.session.completed') {
+//     const session = event.data.object;
 
-    // Fulfill the purchase...
-    fulfillOrder(session);
-  }
+//     // Fulfill the purchase...
+//     fulfillOrder(session);
+//   }
 
-  response.status(200);
-});
+//   response.status(200);
+// });
 
 
 // Create a new instance of an Apollo server with the GraphQL schema

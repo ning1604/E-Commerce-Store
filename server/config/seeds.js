@@ -25,16 +25,7 @@ db.once('open', async () => {
             category: categories[0]._id,
             price: 59.99,
             quantity: 500,
-            comments: [
-                {
-                    author: 'username',
-                    text: 'testing comment text'
-                },
-                {
-                    author: 'username2',
-                    text: 'testing second text'
-                }
-            ]
+            comments: []
         },
         {
             name: 'Polo Shirt',
@@ -45,16 +36,7 @@ db.once('open', async () => {
             category: categories[0]._id,
             price: 64.99,
             quantity: 500,
-            comments: [
-                {
-                    author: 'username',
-                    text: 'testing comment text'
-                },
-                {
-                    author: 'username2',
-                    text: 'testing second text'
-                }
-            ]
+            comments: []
         },
         {
             name: 'Striped Shorts',
@@ -65,16 +47,7 @@ db.once('open', async () => {
             category: categories[1]._id,
             price: 49.99,
             quantity: 500,
-            comments: [
-                {
-                    author: 'username',
-                    text: 'testing comment text'
-                },
-                {
-                    author: 'username2',
-                    text: 'testing second text'
-                }
-            ]
+            comments: []
         },
         {
             name: 'Denim Jeans',
@@ -85,16 +58,7 @@ db.once('open', async () => {
             category: categories[1]._id,
             price: 179.99,
             quantity: 500,
-            comments: [
-                {
-                    author: 'username',
-                    text: 'testing comment text'
-                },
-                {
-                    author: 'username2',
-                    text: 'testing second text'
-                }
-            ]
+            comments: []
         },
         {
             name: 'Knitted Jumper',
@@ -105,16 +69,7 @@ db.once('open', async () => {
             category: categories[2]._id,
             price: 119.99,
             quantity: 500,
-            comments: [
-                {
-                    author: 'username',
-                    text: 'testing comment text'
-                },
-                {
-                    author: 'username2',
-                    text: 'testing second text'
-                }
-            ]
+            comments: []
         },
         {
             name: 'Sweatshirt',
@@ -125,16 +80,7 @@ db.once('open', async () => {
             category: categories[2]._id,
             price: 79.99,
             quantity: 500,
-            comments: [
-                {
-                    author: 'username',
-                    text: 'testing comment text'
-                },
-                {
-                    author: 'username2',
-                    text: 'testing second text'
-                }
-            ]
+            comments: []
         },
         {
             name: 'Beanie',
@@ -145,16 +91,7 @@ db.once('open', async () => {
             category: categories[3]._id,
             price: 45.99,
             quantity: 500,
-            comments: [
-                {
-                    author: 'username',
-                    text: 'testing comment text'
-                },
-                {
-                    author: 'username2',
-                    text: 'testing second text'
-                }
-            ]
+            comments: []
         }
     ]);
 

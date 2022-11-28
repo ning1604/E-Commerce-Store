@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User, Product, Category, Order, Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const stripe = require('stripe')(`${process.env.REACT_APP_SERVER_SECRET_KEY}`);
@@ -98,9 +98,9 @@ const resolvers = {
       return { token, user };
     },
     addComment: async (parent, args, {_id, comments}) => {
-      const newComment = { author: args.author, text: args.text }
+      const newComment = { author: args.author, text: args.text, productId: args.productId }
 
-      await Product.findByIdAndUpdate(_id, { $push: { comments: newComment } }, { new: true });
+      await Product.findByIdAndUpdate(args.productId, { $push: { comments: newComment } }, { new: true });
 
       return newComment;
     },

@@ -31,12 +31,12 @@ export const ADD_ORDER = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($author: String, $text: String) {
-    addComment(author: $author, text: $text) {
+  mutation addComment($author: String!, $text: String!, $productId: ID!) {
+    addComment(author: $author, text: $text, productId: $productId) {
       author
-      text
-    }
+      text  
   }
+}
 `;
 
 export const ADD_USER = gql`

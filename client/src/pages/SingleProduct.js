@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import Auth from '../utils/auth';
 
 import { useStoreContext } from '../utils/GlobalState';
@@ -9,9 +9,12 @@ import {
     UPDATE_CART_QUANTITY,
     ADD_TO_CART,
     UPDATE_PRODUCTS,
+    UPDATE_CURRENT_CATEGORY,
 } from '../utils/actions';
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
+
+import { v4 as uuidv4 } from 'uuid';
 
 function SingleProduct() {
     const [state, dispatch] = useStoreContext();
@@ -23,8 +26,23 @@ function SingleProduct() {
 
     const { products, cart } = state;
 
-    // const [formState, setFormState] = useState({ comment: '', name: '' });
-    // const [addComment] = useMutation(UPDATE_CURRENT_PRODUCT);
+    const ADD_COMMENT = gql`
+        mutation addComment($author: String!, $text: String!, $productId: ID!) {
+            addComment(author: $author, text: $text, productId: $productId) {
+                author
+                text  
+                }
+        }
+    `;
+
+    const [formState, setFormState] = useState({ author: '', text: '', productId: '' });
+    const [addComment] = useMutation(ADD_COMMENT, {
+        variables: {
+            author: formState.author,
+            text: formState.text,
+            productId: currentProduct._id
+        }
+    });
 
     useEffect(() => {
         // already in global store
@@ -74,48 +92,31 @@ function SingleProduct() {
         }
     };
 
-    const commentsObj = {
-        product: {
-            comments: [
-                {
-                    author: 'author one',
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus. Aenean sed accumsan nisi, vestibulum bibendum dui.'
-                },
-                {
-                    author: 'author two',
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales in nisi sit amet finibus.'
-                }
-            ]
-        }
-    };
-
     const handleCommentSubmit = async (event) => {
-      event.preventDefault();  
+        event.preventDefault();
+        // push comment to update? or get updated currentProduct and setCurrentProduct.
+        const updatedProduct = await addComment({
+            variables: {
+                text: formState.text,
+                author: formState.author,
+                productId: currentProduct._id
+            },
+        });
+        console.log(updatedProduct)
+        window.location.reload()
     };
 
-    // const handleCommentSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const mutationResponse = await addComment({
-    //         variables: {
-    //             comment: formState.email,
-    //             display: formState.password,
-    //         },
-    //     });
-    //     const token = mutationResponse.data.addUser.token;
-    //     Auth.login(token);
-    // };
-
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setFormState({
-    //         ...formState,
-    //         [name]: value,
-    //     });
-    // };
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
 
     return (
         <>
-            {currentProduct && cart ? (
+            {currentProduct.comments && cart && currentProduct ? (
                 <div className="main-container page-container">
 
                     <h2 className='sub-header'>{currentProduct.name}</h2>
@@ -140,9 +141,10 @@ function SingleProduct() {
                     <div>
                         <div className='comment-container'>
                             <h3 className='comment-heading'>Comments</h3>
-                            {commentsObj.product.comments.map((comment) => {
+                            {console.log(currentProduct, "hello")}
+                            {currentProduct.comments.map((comment) => {
                                 return (
-                                    <div className='comment-content'>
+                                    <div className='comment-content' key={uuidv4()}>
                                         <p>{comment.text}</p>
                                         <p className='comment-author'>- {comment.author}</p>
                                     </div>
@@ -154,21 +156,26 @@ function SingleProduct() {
                                 <label htmlFor='comment'>Add a comment</label>
                                 <input
                                     placeholder='comment here'
-                                    name='comment'
-                                    type='comment'
-                                    id='comment'
-                                    // onChange={handleChange}
+                                    name='text'
+                                    type='text'
+                                    id='text'
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder='display name'
-                                    name='name'
-                                    type='name'
-                                    id='name'
-                                    // onChange={handleChange}
+                                    name='author'
+                                    type='author'
+                                    id='author'
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div>
-                                <button className='form-btn' type='submit'>Submit</button>
+                                {Auth.loggedIn() ? (
+                                    <button className='form-btn' type='submit'>Submit</button>
+                                ) : (
+                                    <span className='inform-login'>(log in to comment)</span>
+                                )}
+
                             </div>
                         </form>
                     </div>

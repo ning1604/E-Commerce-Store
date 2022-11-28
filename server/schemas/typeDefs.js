@@ -7,8 +7,10 @@ const typeDefs = gql`
   }
 
   type Comment {
-    author: String
-    text: String
+    id: ID!
+    author: String!
+    text: String!
+    productId: ID!
   }
 
   type Product {
@@ -20,7 +22,7 @@ const typeDefs = gql`
     quantity: Int
     price: Float
     category: Category
-    comments: [Comment]
+    comments: [Comment!]!
   }
 
   type Order {
@@ -57,7 +59,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addComment(author: String, text: String): Comment
+    addComment(author: String!, text: String!, productId: ID!): Comment!
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
